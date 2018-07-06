@@ -1,9 +1,14 @@
 <template>
 <div class="MainHeader">
 	<v-toolbar dark color="primary">
-	     <v-toolbar-side-icon></v-toolbar-side-icon>
+	     <v-toolbar-side-icon @click="$emit('changeMainNavState')"></v-toolbar-side-icon>
 	 
-	     <v-toolbar-title class="white--text">Title</v-toolbar-title>
+	     <v-toolbar-title class="white--text">
+		     <router-link to="/">
+			     <h1 class="stName">{{siteName}}</h1>
+			     <span class="stDscr">{{ siteDescription }}</span>
+		     </router-link>
+	     </v-toolbar-title>
 	 
 	     <v-spacer></v-spacer>
 	 
@@ -29,16 +34,31 @@
 
 <script>
 	export default {
+		props: {
+			siteName: String,
+			siteDescription: String
+		},
 		date(){
 			return {
 
+			}
+		},
+		computed:{
+			dscrLCase(){
+				return this.siteDescription.toLowerCase();
 			}
 		}
 	}
 </script>
 
 <style scoped>
-	.MainHeader{
-		background-color: #D8D8D8;
+	.stName{
+		display: inline;
+		text-transform: uppercase;
+		color: white;
+	}
+	.stDscr{
+		color: white;
+		text-transform: lowercase;
 	}
 </style>

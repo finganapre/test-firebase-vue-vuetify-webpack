@@ -1,12 +1,10 @@
 <template>
-	<v-container grid-list-xl>
-      <h3>Главная</h3>
-    </v-container>
+	<h3>Контакты</h3>
 </template>
 
 <script>
 	export default {
-		name: 'Home',
+		name: 'Contacts',
 		date(){
 			return {
 
