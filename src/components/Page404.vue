@@ -1,5 +1,8 @@
 <template>
-	<h3>404</h3>
+	<v-container grid-list-xl>
+	<h3>Ошибка 404</h3>
+	<p>Запрашиваемая страница <span>{{ pagePath }}</span> не существует на нашем сайте, вернитесь на <router-link :to="'/'">главную страницу</router-link></p>
+	</v-container>
 </template>
 
 <script>
@@ -8,6 +11,12 @@
 		date(){
 			return {
 
+			}
+		},
+		computed: {
+			pagePath(){
+				console.log(this.$route);
+				return this.$route.fullPath;
 			}
 		}
 	}

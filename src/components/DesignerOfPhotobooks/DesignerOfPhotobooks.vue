@@ -1,12 +1,13 @@
 <template>
 	<v-container grid-list-xl>
-		<h3>Контакты</h3>
+		<h3>Конструктор фотокниг</h3>
+		<p>Сервис в разработке</p>
 	</v-container>
 </template>
 
 <script>
 	export default {
-		name: 'Contacts',
+		name: 'DesignerOfPhotobooks',
 		date(){
 			return {
 
