@@ -47,7 +47,7 @@
 						
 					>
 						<v-list-tile slot="activator">
-							<v-list-tile-title>Сервисы</v-list-tile-title>
+							<v-list-tile-title>Веб-приложения</v-list-tile-title>
 						</v-list-tile>
 						<v-list-tile
 							v-for="(service, i) in mainNavbarMenuListServices"
@@ -69,6 +69,11 @@
 				</v-navigation-drawer>
 			</v-layout>
 			<!-- End NAVBAR -->
+
+
+
+
+
 			<div class="wrapper">
 				<!-- <img src="./assets/logo.png"> -->
 				<div class="content">
@@ -77,6 +82,8 @@
 						v-bind:siteName="siteName"
 						v-bind:siteDescription="siteDescription"
 						@changeMainNavState="openCloseMainNav"
+						@openAppMenu="openAppMenu"
+						v-bind:appsList="mainNavbarMenuListServices"
 					>
 					</MainHeader>
 
@@ -103,10 +110,11 @@ export default {
 	data(){
 		return {
 			siteName: 'Тета',
-			siteDescription: 'веб-сервисы',
+			siteDescription: 'веб-приложения',
 
 			mainNavbarDrawer: null,
 			userName: 'user name',
+
 			mainNavbarMenuList: [
 				{title: 'На главную', icon: 'home', link: '/'},
 				{title: 'Контакты', icon: 'contacts', link: '/contacts'},
@@ -118,11 +126,15 @@ export default {
 				['Конструктор фотокниг', 'extension', '/designer-of-photobooks'],
 				['Конструктор багетов', 'extension', '/baguette-designer']
 			]
+
 		}
 	},
 	methods:{
 		openCloseMainNav(){
 			this.mainNavbarDrawer = !(this.mainNavbarDrawer);
+		},
+		openAppMenu(){
+
 		}
 	},
 	components: {

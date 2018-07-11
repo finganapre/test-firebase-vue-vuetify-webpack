@@ -15,10 +15,26 @@
 	     <v-btn icon>
 	       <v-icon>search</v-icon>
 	     </v-btn>
-	 
-	     <v-btn icon>
-	       <v-icon>apps</v-icon>
-	     </v-btn>
+
+	 	 <v-menu offset-y>
+		     <v-btn
+				slot="activator"
+		        icon
+		     >
+		       <v-icon>apps</v-icon>
+		     </v-btn>
+
+			 <v-list>
+	           <v-list-tile
+	             v-for="(item, index) in appsList"
+	             :key="index"
+	             :to="item[2]"
+	             @click="$emit('openAppMenu')"
+	           >
+	             <v-list-tile-title>{{ item[0] }}</v-list-tile-title>
+	           </v-list-tile>
+	         </v-list>
+		</v-menu>
 	 
 	     <v-btn icon>
 	       <v-icon>refresh</v-icon>
@@ -36,13 +52,17 @@
 	export default {
 		props: {
 			siteName: String,
-			siteDescription: String
+			siteDescription: String,
+			appsList: Array
 		},
-		date(){
-			return {
-
-			}
-		},
+		data: () => ({
+			items: [
+			      { title: 'Click Me' },
+			      { title: 'Click Me' },
+			      { title: 'Click Me' },
+			      { title: 'Click Me 2' }
+			]
+		}),
 		computed:{
 			dscrLCase(){
 				return this.siteDescription.toLowerCase();
